@@ -1,0 +1,94 @@
+// reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  min-height: 100%;
+  height: auto;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  hyphens: auto;
+  -webkit-hyphenate-character: '-';
+  hyphenate-character: '-';
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+}
+
+// custom
+::selection {
+  background-color: var(--c-dark);
+  color: var(--c-light);
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-base);
+  background-color: var(--c-light);
+}
+
+// scroll
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+// grid
+.container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.grid {
+  display: grid;
+  gap: var(--grid-gutter);
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+}
+
+// tweakpane
+.tp-dfwv {
+  position: fixed !important;
+}

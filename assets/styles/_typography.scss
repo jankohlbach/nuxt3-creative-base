@@ -1,0 +1,57 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--fw-black);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--fs-6);
+}
+
+h2 {
+  font-size: var(--fs-4);
+}
+
+h3 {
+  font-size: var(--fs-2);
+}
+
+h4 {
+  font-size: var(--fs-1);
+}
+
+h5 {
+  font-size: var(--fs-1);
+}
+
+h6 {
+  font-size: var(--fs-1);
+}
+
+.richtext {
+  * {
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:not(:first-child) {
+      margin-top: 1.2em;
+    }
+  }
+
+  ul,
+  ol {
+    padding-left: 1em;
+  }
+}

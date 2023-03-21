@@ -1,0 +1,68 @@
+@use 'functions' as *;
+
+:root {
+  // spacings (@link https://utopia.fyi/space/calculator?c=375,20,1.2,1600,36,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-xs&g=s,m,2xl,12)
+  --s-xs: clamp(0.94rem, calc(0.71rem + 0.98vw), 1.69rem);
+  --s-s: clamp(1.25rem, calc(0.94rem + 1.31vw), 2.25rem);
+  --s-m: clamp(1.88rem, calc(1.42rem + 1.96vw), 3.38rem);
+  --s-l: clamp(2.50rem, calc(1.89rem + 2.61vw), 4.50rem);
+  --s-xl: clamp(3.75rem, calc(2.83rem + 3.92vw), 6.75rem);
+  --s-2xl: clamp(5.00rem, calc(3.78rem + 5.22vw), 9.00rem);
+  --s-3xl: clamp(7.50rem, calc(5.66rem + 7.84vw), 13.50rem);
+  --s-4xl: clamp(10.00rem, calc(7.55rem + 10.45vw), 18.00rem);
+  --s-5xl: clamp(12.50rem, calc(9.44rem + 13.06vw), 22.50rem);
+
+  --s-s-xs: clamp(1.25rem, calc(1.12rem + 0.57vw), 1.69rem);
+
+  // layout (@link https://utopia.fyi/grid/calculator?c=375,20,1.2,1600,36,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,xs,xl,12)
+  --grid-max-width: 102rem;
+  --grid-gutter: var(--s-s-xs, clamp(1.25rem, calc(1.12rem + 0.55vw), 1.69rem));
+  --grid-columns: 12;
+
+  // fonts
+  --ff-primary: 'Open Sans', 'Fira Sans', 'Source Sans Pro', 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+  // font-sizes (@link https://utopia.fyi/type/calculator?c=375,18,1.2,1600,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12)
+  --fs--2: clamp(0.78rem, calc(0.73rem + 0.23vw), 0.96rem);
+  --fs--1: clamp(0.94rem, calc(0.86rem + 0.34vw), 1.20rem);
+  --fs-base: clamp(1.13rem, calc(1.01rem + 0.49vw), 1.50rem);
+  --fs-1: clamp(1.35rem, calc(1.19rem + 0.69vw), 1.88rem);
+  --fs-2: clamp(1.62rem, calc(1.40rem + 0.95vw), 2.34rem);
+  --fs-3: clamp(1.94rem, calc(1.64rem + 1.29vw), 2.93rem);
+  --fs-4: clamp(2.33rem, calc(1.93rem + 1.74vw), 3.66rem);
+  --fs-5: clamp(2.80rem, calc(2.26rem + 2.32vw), 4.58rem);
+  --fs-6: clamp(3.36rem, calc(2.64rem + 3.09vw), 5.72rem);
+  --fs-7: clamp(4.03rem, calc(3.08rem + 4.08vw), 7.15rem);
+  --fs-8: clamp(4.84rem, calc(3.58rem + 5.36vw), 8.94rem);
+  --fs-9: clamp(5.81rem, calc(4.16rem + 7.01vw), 11.18rem);
+  --fs-10: clamp(6.97rem, calc(4.82rem + 9.15vw), 13.97rem);
+
+  // font-weights
+  --fw-thin: 100;
+  --fw-hairline: var(--fw-thin);
+  --fw-xlight: 200;
+  --fw-ultralight: var(--fw-xlight);
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-regular: var(--fw-normal);
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-demibold: var(--fw-semibold);
+  --fw-bold: 700;
+  --fw-xbold: 800;
+  --fw-ultrabold: var(--fw-xbold);
+  --fw-black: 900;
+  --fw-heavy: var(--fw-black);
+  --fw-xblack: 950;
+  --fw-ultrablack: var(--fw-xblack);
+
+  // colors
+  --c-light: #FFFFFF;
+  --c-dark: #000000;
+
+  // animations
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  // z-index
+  --zi-cursor: 2000;
+}
