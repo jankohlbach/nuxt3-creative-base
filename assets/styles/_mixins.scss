@@ -1,5 +1,5 @@
 @mixin has-hover() {
-  @media (any-hover: hover) {
+  @media (hover: hover) {
     @content;
   }
 }
