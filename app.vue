@@ -2,7 +2,7 @@
 import Lenis from '@studio-freight/lenis'
 
 onMounted(() => {
-  const lenis = new Lenis({ lerp: 0.075 })
+  const lenis = new Lenis()
 
   const raf = (time: number) => {
     lenis.raf(time)
