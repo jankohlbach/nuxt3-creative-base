@@ -24,6 +24,9 @@ onMounted(() => {
 
   const shaderProgram = createShaderProgram(gl, vsSource, fsSource)
 
+  const resolutionUniformLocation = gl.getUniformLocation(shaderProgram, 'u_resolution')
+  const mouseUniformLocation = gl.getUniformLocation(shaderProgram, 'u_mouse')
+  const timeUniformLocation = gl.getUniformLocation(shaderProgram, 'u_time')
   const positionAttributeLocation = gl.getAttribLocation(shaderProgram, 'a_position')
   const vertexBuffer = gl.createBuffer()
   gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer)
@@ -32,19 +35,25 @@ onMounted(() => {
   const segmentsCount = 40
   const angleStep = (2 * Math.PI) / segmentsCount
 
-  const render = () => {
+  const render = (time = 0) => {
+    time /= 1000
+
     gl.clearColor(0, 0, 0, 0)
     gl.clear(gl.COLOR_BUFFER_BIT)
 
-    cursor.target.x = lerp(cursor.current.x, cursor.target.x, 0.95)
-    cursor.target.y = lerp(cursor.current.y, cursor.target.y, 0.95)
+    cursor.current.x = lerp(cursor.current.x, cursor.target.x, 0.05)
+    cursor.current.y = lerp(cursor.current.y, cursor.target.y, 0.05)
 
-    const vertices = [cursor.target.x + 0.05, cursor.target.y - 0.05]
+    gl.uniform2f(resolutionUniformLocation, canvas.value.width, canvas.value.height)
+    gl.uniform2f(mouseUniformLocation, cursor.current.x, cursor.current.y)
+    gl.uniform1f(timeUniformLocation, time)
+
+    const vertices = [cursor.current.x + 0.05, cursor.current.y - 0.05]
 
     for (let i = 0; i <= segmentsCount; i++) {
       const angle = i * angleStep
-      const x = (Math.cos(angle) / radius) + cursor.target.x + 0.05
-      const y = (Math.sin(angle) / radius * (window.innerWidth / window.innerHeight)) + cursor.target.y - 0.05
+      const x = (Math.cos(angle) / radius) + cursor.current.x + 0.05
+      const y = (Math.sin(angle) / radius * (window.innerWidth / window.innerHeight)) + cursor.current.y - 0.05
       vertices.push(x, y)
     }
 
@@ -61,8 +70,8 @@ onMounted(() => {
   window.addEventListener('mousemove', (event) => {
     const mouseX = event.clientX
     const mouseY = event.clientY
-    cursor.current.x = (mouseX / window.innerWidth) * 2 - 1
-    cursor.current.y = (mouseY / window.innerHeight) * -2 + 1
+    cursor.target.x = (mouseX / window.innerWidth) * 2 - 1
+    cursor.target.y = (mouseY / window.innerHeight) * -2 + 1
   })
 
   window.addEventListener('resize', () => debounce(resizeCanvas(gl)))
