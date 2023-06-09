@@ -1,18 +1,3 @@
-<script setup lang="ts">
-import Lenis from '@studio-freight/lenis'
-
-onMounted(() => {
-  const lenis = new Lenis()
-
-  const raf = (time: number) => {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-  }
-
-  requestAnimationFrame(raf)
-})
-</script>
-
 <template>
   <main>
     <Cursor />
