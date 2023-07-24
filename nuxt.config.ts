@@ -21,11 +21,11 @@ export default defineNuxtConfig({
         { name: 'robots', content: 'noindex,nofollow' },
         { name: 'theme-color', content: '#000000' },
         { name: 'description', content: 'minimal nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, a native webgl setting (the cursor) and a three.js setting (the cube)' },
-        { name: 'og:title', content: 'nuxt3 creative base' },
-        { name: 'og:description', content: 'minimal nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, a native webgl setting (the cursor) and a three.js setting (the cube)' },
-        // { name: 'og:image', content: '/og-image.jpg' },
-        { name: 'og:type', content: 'website' },
-        { name: 'og:locale', content: 'en' }
+        { property: 'og:title', content: 'nuxt3 creative base' },
+        { property: 'og:description', content: 'minimal nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, a native webgl setting (the cursor) and a three.js setting (the cube)' },
+        // { property: 'og:image', content: '/og-image.jpg' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:locale', content: 'en' }
       ]
     }
   },
