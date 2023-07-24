@@ -5,14 +5,6 @@ import { Pane } from 'tweakpane'
 
 const canvas = ref()
 
-const resizeCanvas = (camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer) => {
-  camera.aspect = window.innerWidth / window.innerHeight
-  camera.updateProjectionMatrix()
-
-  renderer.setSize(window.innerWidth, window.innerHeight)
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-}
-
 onMounted(() => {
   const pane = new Pane()
 
@@ -55,7 +47,7 @@ onMounted(() => {
 
   requestAnimationFrame(render)
 
-  window.addEventListener('resize', () => debounce(resizeCanvas(camera, renderer)))
+  window.addEventListener('resize', () => debounce(resizeThreeCanvas(camera, renderer)))
 })
 </script>
 

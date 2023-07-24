@@ -8,19 +8,10 @@ const cursor = {
   target: { x: 0, y: 0 }
 }
 
-const resizeCanvas = (gl: WebGL2RenderingContext) => {
-  canvas.value.width = window.innerWidth * Math.min(window.devicePixelRatio, 2)
-  canvas.value.height = window.innerHeight * Math.min(window.devicePixelRatio, 2)
-  canvas.value.style.width = `${window.innerWidth}px`
-  canvas.value.style.height = `${window.innerHeight}px`
-
-  gl.viewport(0, 0, gl.canvas.width, gl.canvas.height)
-}
-
 onMounted(() => {
   const gl: WebGL2RenderingContext = canvas.value.getContext('webgl2')
 
-  resizeCanvas(gl)
+  resizeShaderCanvas(canvas.value, gl)
 
   const shaderProgram = createShaderProgram(gl, vsSource, fsSource)
 
@@ -74,7 +65,7 @@ onMounted(() => {
     cursor.target.y = (mouseY / window.innerHeight) * -2 + 1
   })
 
-  window.addEventListener('resize', () => debounce(resizeCanvas(gl)))
+  window.addEventListener('resize', () => debounce(resizeShaderCanvas(canvas.value, gl)))
 })
 </script>
 
