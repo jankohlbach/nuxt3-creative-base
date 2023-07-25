@@ -3,7 +3,7 @@
     <Cursor />
     <Cube />
     <!-- <Distortion /> -->
-    <section>
+    <!-- <FluidSmoke /> -->
       <h1>section 1</h1>
     </section>
     <section>
