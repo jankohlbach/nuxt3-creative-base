@@ -23,3 +23,8 @@ vec3 hsb2rgb( in vec3 c ){
     rgb = rgb*rgb*(3.0-2.0*rgb);
     return c.z * mix(vec3(1.0), rgb, c.y);
 }
+
+// https://iquilezles.org/articles/palettes/
+vec3 palette(in float t, in vec3 a, in vec3 b, in vec3 c, in vec3 d) {
+  return a + b * cos(6.28318 * (c * t + d));
+}

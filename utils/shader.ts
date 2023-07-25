@@ -1,10 +1,12 @@
 export const resizeShaderCanvas = (canvas: HTMLCanvasElement, gl: WebGL2RenderingContext) => {
-  canvas.width = window.innerWidth * Math.min(window.devicePixelRatio, 2)
-  canvas.height = window.innerHeight * Math.min(window.devicePixelRatio, 2)
-  canvas.style.width = `${window.innerWidth}px`
-  canvas.style.height = `${window.innerHeight}px`
+  if (canvas) {
+    canvas.width = window.innerWidth * Math.min(window.devicePixelRatio, 2)
+    canvas.height = window.innerHeight * Math.min(window.devicePixelRatio, 2)
+    canvas.style.width = `${window.innerWidth}px`
+    canvas.style.height = `${window.innerHeight}px`
 
-  gl.viewport(0, 0, gl.canvas.width, gl.canvas.height)
+    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height)
+  }
 }
 
 export const createShader = (gl: WebGL2RenderingContext, type: number, code: string) => {
