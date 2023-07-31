@@ -62,4 +62,6 @@ void main() {
   outColor.r *= 1.0;
   outColor.g *= 0.7;
   outColor.b *= 0.0;
+
+  outColor.a = outColor.r * 0.8;
 }

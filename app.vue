@@ -4,6 +4,7 @@
     <Cube />
     <!-- <Distortion /> -->
     <!-- <FluidSmoke /> -->
+    <section>
       <h1>section 1</h1>
     </section>
     <section>

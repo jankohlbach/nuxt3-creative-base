@@ -41,7 +41,7 @@ onMounted(() => {
   bufferScene.add(bufferMesh)
 
   // final scene
-  material = new THREE.MeshBasicMaterial({ map: bufferTextureB.texture })
+  material = new THREE.MeshBasicMaterial({ map: bufferTextureB.texture, transparent: true })
   const mesh = new THREE.Mesh(geometry, material)
   scene.add(mesh)
 
