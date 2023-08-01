@@ -74,8 +74,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '~/assets/styles/mixins' as *;
-
 canvas {
   position: fixed;
   inset: 0;
