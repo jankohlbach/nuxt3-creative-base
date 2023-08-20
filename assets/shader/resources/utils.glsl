@@ -7,16 +7,34 @@ vec2 cover(vec2 resolution, sampler2D image, vec2 texCoord) {
   vec2 textureSize = vec2(textureSize(image, 0));
   float textureAspectRatio = textureSize.x / textureSize.y;
 
-  if (aspectRatio.x > textureAspectRatio) {
-    texCoord.x *= aspectRatio.x / textureAspectRatio;
-    texCoord.x += (1.0 - aspectRatio.x / textureAspectRatio) / 2.0;
-  } else {
-    texCoord.y *= textureAspectRatio / aspectRatio.x;
-    texCoord.y += (1.0 - textureAspectRatio / aspectRatio.x) / 2.0;
-  }
+  float stretchDirection = step(textureAspectRatio, aspectRatio.x);
+
+  texCoord.x *= pow(aspectRatio.x / textureAspectRatio, stretchDirection);
+  texCoord.x += ((1.0 - aspectRatio.x / textureAspectRatio) / 2.0) * stretchDirection;
+
+  texCoord.y *= pow(textureAspectRatio / aspectRatio.x, (1.0 - stretchDirection));
+  texCoord.y += ((1.0 - textureAspectRatio / aspectRatio.x) / 2.0) * (1.0 - stretchDirection);
+
+  // readable code
+  // if (aspectRatio.x > textureAspectRatio) {
+  //   texCoord.x *= aspectRatio.x / textureAspectRatio;
+  //   texCoord.x += (1.0 - aspectRatio.x / textureAspectRatio) / 2.0;
+  // } else {
+  //   texCoord.y *= textureAspectRatio / aspectRatio.x;
+  //   texCoord.y += (1.0 - textureAspectRatio / aspectRatio.x) / 2.0;
+  // }
 
   return texCoord;
 }
+
+// uv, rotation (in radians), mid (point to rotate around)
+vec2 rotate(vec2 uv, float rotation, vec2 mid) {
+  return vec2(
+    cos(rotation) * (uv.x - mid.x) + sin(rotation) * (uv.y - mid.y) + mid.x,
+    cos(rotation) * (uv.y - mid.y) - sin(rotation) * (uv.x - mid.x) + mid.y
+  );
+}
+
 
 // float circle(vec2 st, float radius) {
 //   vec2 dist = st - vec2(0.5);
