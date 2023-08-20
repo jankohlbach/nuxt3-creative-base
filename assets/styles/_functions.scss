@@ -8,7 +8,7 @@
   @return $number;
 }
 
-@function rem($size-in-px) {
+@function to-rem($size-in-px) {
   @return math.div(strip-unit($size-in-px), strip-unit(16px)) * 1rem;
 }
 

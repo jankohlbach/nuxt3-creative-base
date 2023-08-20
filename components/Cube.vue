@@ -12,7 +12,7 @@ onMounted(() => {
 
   const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.z = 3
-  pane.addInput(camera.position, 'z', { min: 1, max: 10 })
+  pane.addBinding(camera.position, 'z', { min: 1, max: 10 })
 
   // const cameraHelper = new THREE.CameraHelper(camera)
   // scene.add(cameraHelper)
