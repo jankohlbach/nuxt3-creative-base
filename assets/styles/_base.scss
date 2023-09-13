@@ -37,6 +37,7 @@ input, button, textarea, select {
 button {
   appearance: none;
   background: transparent;
+  color: inherit;
   border: none;
   cursor: pointer;
 }
