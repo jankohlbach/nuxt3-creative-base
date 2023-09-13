@@ -1,3 +1,5 @@
+@use 'functions' as *;
+
 :root {
   // spacings (@link https://utopia.fyi/space/calculator?c=375,20,1.2,1600,36,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-xs&g=s,m,2xl,12)
   --s-xs: clamp(0.94rem, calc(0.71rem + 0.98vw), 1.69rem);
@@ -12,9 +14,12 @@
 
   --s-s-xs: clamp(1.25rem, calc(1.12rem + 0.57vw), 1.69rem);
 
-  // layout (@link https://utopia.fyi/grid/calculator?c=375,20,1.2,1600,36,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,xs,xl,12)
-  --grid-max-width: 102rem;
-  --grid-gutter: var(--s-s-xs, clamp(1.25rem, calc(1.12rem + 0.55vw), 1.69rem));
+  // grid
+  --fluid-min: 375;
+  --fluid-max: 1720;
+  --grid-margin: #{to-rem(20)};
+  --grid-max-width: calc(#{to-rem(1920)} - var(--grid-margin));
+  --grid-gutter: #{clampFluid(10, 20)};
   --grid-columns: 12;
 
   // fonts
@@ -60,6 +65,7 @@
 
   // animations
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-in-out-custom: cubic-bezier(0.4, 0, 0.2, 1);
 
   // z-index
   --zi-cursor: 2000;

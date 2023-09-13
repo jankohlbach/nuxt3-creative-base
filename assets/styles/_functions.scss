@@ -12,6 +12,10 @@
   @return math.div(strip-unit($size-in-px), strip-unit(16px)) * 1rem;
 }
 
+@function clampFluid($min, $max) {
+  @return clamp(to-rem($min), calc(((100 * ($max - $min)) / (var(--fluid-max) - var(--fluid-min))) * 1vw) + calc((((var(--fluid-min) * $max) - (var(--fluid-max) * $min)) / (var(--fluid-min) - var(--fluid-max))) / 16 * 1rem), to-rem($max));
+}
+
 @function str-replace($string, $search, $replace: "") {
   $index: str-index($string, $search);
 

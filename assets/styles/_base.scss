@@ -17,6 +17,7 @@ html, body {
 
 body {
   width: 100vw;
+  padding-right: 10px;
   overflow-x: hidden;
   hyphens: auto;
   -webkit-hyphenate-character: '-';
@@ -79,7 +80,7 @@ body {
 // grid
 .container {
   max-width: var(--grid-max-width);
-  padding-inline: var(--grid-gutter);
+  padding-inline: var(--grid-margin);
   margin-inline: auto;
 }
 
