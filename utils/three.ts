@@ -9,9 +9,8 @@ export const resizeThreeCanvas = (
 ) => {
   if (camera instanceof PerspectiveCamera) {
     camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
   }
-
-  camera.updateProjectionMatrix()
 
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.setPixelRatio(fixedRatio || Math.min(window.devicePixelRatio, 2))

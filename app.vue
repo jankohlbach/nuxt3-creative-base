@@ -2,6 +2,7 @@
   <main>
     <Cursor />
     <Cube />
+    <!-- <Image /> -->
     <!-- <Distortion /> -->
     <!-- <FluidSmoke /> -->
     <section>

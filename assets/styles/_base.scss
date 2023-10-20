@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+
 // reset
 *,
 *::before,
@@ -16,19 +18,27 @@ html, body {
 }
 
 body {
-  width: 100vw;
-  padding-right: 10px;
+  width: 100%;
   overflow-x: hidden;
   hyphens: auto;
   -webkit-hyphenate-character: '-';
   hyphenate-character: '-';
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+
+  @include has-hover {
+    width: 100vw;
+    padding-right: 10px;
+  }
 }
 
-img, picture, video, canvas, svg {
+img, picture, video, svg {
   display: block;
   max-width: 100%;
+}
+
+canvas {
+  display: block;
 }
 
 input, button, textarea, select {

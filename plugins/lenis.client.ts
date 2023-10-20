@@ -1,6 +1,8 @@
 import Lenis from '@studio-freight/lenis'
 
 export default defineNuxtPlugin(() => {
+  const scroll = useScroll()
+
   const lenis = new Lenis()
 
   const raf = (time: number) => {
@@ -18,6 +20,10 @@ export default defineNuxtPlugin(() => {
   window.addEventListener('scroll:start', () => {
     document.body.style.overflowY = ''
     lenis.start()
+  })
+
+  lenis.on('scroll', (_e: any) => {
+    scroll.value.scrollY = window.scrollY
   })
 
   return {
