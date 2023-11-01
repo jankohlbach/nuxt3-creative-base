@@ -3,6 +3,24 @@ float random(vec2 st) {
   return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
 }
 
+// contain
+vec2 getContainUvFrag(vec2 uv, vec2 textureSize, vec2 quadSize) {
+  vec2 tempUv = uv - vec2(0.5);
+
+  float quadAspect = quadSize.x / quadSize.y;
+  float textureAspect = textureSize.x / textureSize.y;
+
+  if (quadAspect > textureAspect) {
+    tempUv *= vec2(quadAspect / textureAspect, 1.0);
+  } else {
+    tempUv *= vec2(1.0, textureAspect / quadAspect);
+  }
+
+  tempUv += vec2(0.5);
+
+  return tempUv;
+}
+
 // cover
 vec2 getCoverUvVert(vec2 uv, vec2 textureSize, vec2 quadSize) {
   vec2 ratio = vec2(
