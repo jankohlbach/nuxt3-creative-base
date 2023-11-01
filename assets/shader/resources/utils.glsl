@@ -1,30 +1,36 @@
+// random
 float random(vec2 st) {
   return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
 }
 
-vec2 cover(vec2 resolution, sampler2D image, vec2 texCoord) {
-  vec2 aspectRatio = vec2(resolution.x / resolution.y, 1.0);
-  vec2 textureSize = vec2(textureSize(image, 0));
-  float textureAspectRatio = textureSize.x / textureSize.y;
+// cover
+vec2 getCoverUvVert(vec2 uv, vec2 textureSize, vec2 quadSize) {
+  vec2 ratio = vec2(
+    min((quadSize.x / quadSize.y) / (textureSize.x / textureSize.y), 1.0),
+    min((quadSize.y / quadSize.x) / (textureSize.y / textureSize.x), 1.0)
+  );
 
-  float stretchDirection = step(textureAspectRatio, aspectRatio.x);
+  return vec2(
+    uv.x * ratio.x + (1.0 - ratio.x) * 0.5,
+    uv.y * ratio.y + (1.0 - ratio.y) * 0.5
+  );
+}
 
-  texCoord.x *= pow(aspectRatio.x / textureAspectRatio, stretchDirection);
-  texCoord.x += ((1.0 - aspectRatio.x / textureAspectRatio) / 2.0) * stretchDirection;
+vec2 getCoverUvFrag(vec2 uv, vec2 textureSize, vec2 quadSize) {
+  vec2 tempUv = uv - vec2(0.5);
 
-  texCoord.y *= pow(textureAspectRatio / aspectRatio.x, (1.0 - stretchDirection));
-  texCoord.y += ((1.0 - textureAspectRatio / aspectRatio.x) / 2.0) * (1.0 - stretchDirection);
+  float quadAspect = quadSize.x / quadSize.y;
+  float textureAspect = textureSize.x / textureSize.y;
 
-  // readable code
-  // if (aspectRatio.x > textureAspectRatio) {
-  //   texCoord.x *= aspectRatio.x / textureAspectRatio;
-  //   texCoord.x += (1.0 - aspectRatio.x / textureAspectRatio) / 2.0;
-  // } else {
-  //   texCoord.y *= textureAspectRatio / aspectRatio.x;
-  //   texCoord.y += (1.0 - textureAspectRatio / aspectRatio.x) / 2.0;
-  // }
+  if (quadAspect < textureAspect) {
+    tempUv *= vec2(quadAspect / textureAspect, 1.0);
+  } else {
+    tempUv *= vec2(1.0, textureAspect / quadAspect);
+  }
 
-  return texCoord;
+  tempUv += vec2(0.5);
+
+  return tempUv;
 }
 
 // uv, rotation (in radians), mid (point to rotate around)
