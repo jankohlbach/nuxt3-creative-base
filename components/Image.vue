@@ -112,8 +112,12 @@ onMounted(() => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
   // render loop
-  const render = (_time = 0) => {
-    // time /= 1000
+  const render = (time = 0) => {
+    time /= 1000
+
+    imageStore.forEach((object) => {
+      object.material.uniforms.uTime.value = time
+    })
 
     setPositions()
 

@@ -5,28 +5,16 @@ uniform vec2 uResolution; // in pixel
 uniform vec2 uMouse; // 0 (left) 0 (bottom) - 1 (top) 1 (right)
 uniform sampler2D uImage;
 
-varying vec2 vUv;
+in vec2 vUv;
 
+#include './resources/utils';
 #include './resources/noise';
 
 out vec4 outColor;
 
 
 void main() {
-  vec2 texCoord = vUv;
-
-  // object-fit cover
-  vec2 aspectRatio = vec2(uResolution.x / uResolution.y, 1.0);
-  vec2 textureSize = vec2(textureSize(uImage, 0));
-  float textureAspectRatio = textureSize.x / textureSize.y;
-
-  if (aspectRatio.x > textureAspectRatio) {
-    texCoord.x *= aspectRatio.x / textureAspectRatio;
-    texCoord.x += (1.0 - aspectRatio.x / textureAspectRatio) / 2.0;
-  } else {
-    texCoord.y *= textureAspectRatio / aspectRatio.x;
-    texCoord.y += (1.0 - textureAspectRatio / aspectRatio.x) / 2.0;
-  }
+  vec2 texCoord = getContainUvFrag(vUv, vec2(1920.0, 1080.0), uResolution);
 
   // effect
   float ratio = uResolution.y / uResolution.x;
