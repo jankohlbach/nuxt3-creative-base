@@ -12,15 +12,15 @@ export default defineNuxtPlugin(() => {
 
   requestAnimationFrame(raf)
 
-  window.addEventListener('scroll:stop', () => {
+  const scrollStop = () => {
     document.body.style.overflowY = 'hidden'
     lenis.stop()
-  })
+  }
 
-  window.addEventListener('scroll:start', () => {
+  const scrollStart = () => {
     document.body.style.overflowY = ''
     lenis.start()
-  })
+  }
 
   lenis.on('scroll', (_e: any) => {
     scroll.value.scrollY = window.scrollY
@@ -28,7 +28,9 @@ export default defineNuxtPlugin(() => {
 
   return {
     provide: {
-      lenis
+      lenis,
+      scrollStop,
+      scrollStart
     }
   }
 })
