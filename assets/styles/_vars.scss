@@ -17,9 +17,10 @@
   // grid
   --fluid-min: 375;
   --fluid-max: 1720;
+  --container-max-width: #{to-rem(1920)};
   --grid-margin: #{to-rem(20)};
-  --grid-max-width: calc(#{to-rem(1920)} - var(--grid-margin));
   --grid-gutter: #{clampFluid(10, 20)};
+  --grid-max-width: calc(var(--container-max-width) - var(--grid-margin) * 2);
   --grid-columns: 12;
 
   // fonts
