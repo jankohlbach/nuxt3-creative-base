@@ -47,7 +47,7 @@ onMounted(() => {
 
   requestAnimationFrame(render)
 
-  window.addEventListener('resize', () => debounce(resizeThreeCanvas(camera, renderer)))
+  window.addEventListener('resize', () => debounce(resizeThreeCanvas({ camera, renderer })))
 })
 </script>
 

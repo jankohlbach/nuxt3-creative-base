@@ -65,7 +65,7 @@ onMounted(() => {
   })
 
   window.addEventListener('resize', debounce(() => {
-    resizeThreeCanvas(camera, renderer)
+    resizeThreeCanvas({ camera, renderer })
 
     material.uniforms.uResolution.value.x = window.innerWidth
     material.uniforms.uResolution.value.y = window.innerHeight
