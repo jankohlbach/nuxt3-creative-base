@@ -4,7 +4,7 @@ float random(vec2 st) {
 }
 
 // contain
-vec2 getContainUvFrag(vec2 uv, vec2 textureSize, vec2 quadSize) {
+vec2 getContainUv(vec2 uv, vec2 textureSize, vec2 quadSize) {
   vec2 tempUv = uv - vec2(0.5);
 
   float quadAspect = quadSize.x / quadSize.y;

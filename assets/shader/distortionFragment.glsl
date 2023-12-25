@@ -14,7 +14,7 @@ out vec4 outColor;
 
 
 void main() {
-  vec2 texCoord = getContainUvFrag(vUv, vec2(1920.0, 1080.0), uResolution);
+  vec2 texCoord = getContainUv(vUv, vec2(1920.0, 1080.0), uResolution);
 
   // effect
   float ratio = uResolution.y / uResolution.x;
