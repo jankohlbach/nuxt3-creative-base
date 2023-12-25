@@ -2,13 +2,43 @@
 import vsSource from '~/assets/shader/cursorVertex.glsl'
 import fsSource from '~/assets/shader/cursorFragment.glsl'
 
+const { cursorPos, setCursorPosCurrent, setCursorPosTarget } = useCursor()
+
 const canvas = ref()
-const cursor = {
-  current: { x: 0, y: 0 },
-  target: { x: 0, y: 0 }
-}
 
 onMounted(() => {
+  // cursor logic
+  let raf: number | null
+
+  window.addEventListener('mousemove', (event) => {
+    setCursorPosTarget(event.clientX, event.clientY)
+
+    if (!raf) {
+      raf = requestAnimationFrame(calcLerp)
+    }
+  })
+
+  const calcLerp = () => {
+    const x = lerp(cursorPos.value.current.x, cursorPos.value.target.x, 0.05)
+    const y = lerp(cursorPos.value.current.y, cursorPos.value.target.y, 0.05)
+
+    setCursorPosCurrent(x, y)
+
+    const delta = Math.sqrt(
+      ((cursorPos.value.target.x - cursorPos.value.current.x) ** 2) +
+      ((cursorPos.value.target.y - cursorPos.value.current.y) ** 2)
+    )
+
+    if (delta < 0.001 && raf) {
+      cancelAnimationFrame(raf)
+      raf = null
+      return
+    }
+
+    raf = requestAnimationFrame(calcLerp)
+  }
+
+  // canvas
   const gl: WebGL2RenderingContext = canvas.value.getContext('webgl2')
 
   resizeShaderCanvas(canvas.value, gl)
@@ -16,7 +46,6 @@ onMounted(() => {
   const shaderProgram = createShaderProgram(gl, vsSource, fsSource)
 
   const resolutionUniformLocation = gl.getUniformLocation(shaderProgram, 'u_resolution')
-  const mouseUniformLocation = gl.getUniformLocation(shaderProgram, 'u_mouse')
   const timeUniformLocation = gl.getUniformLocation(shaderProgram, 'u_time')
   const positionAttributeLocation = gl.getAttribLocation(shaderProgram, 'a_position')
   const vertexBuffer = gl.createBuffer()
@@ -32,19 +61,18 @@ onMounted(() => {
     gl.clearColor(0, 0, 0, 0)
     gl.clear(gl.COLOR_BUFFER_BIT)
 
-    cursor.current.x = lerp(cursor.current.x, cursor.target.x, 0.05)
-    cursor.current.y = lerp(cursor.current.y, cursor.target.y, 0.05)
-
     gl.uniform2f(resolutionUniformLocation, canvas.value.width, canvas.value.height)
-    gl.uniform2f(mouseUniformLocation, cursor.current.x, cursor.current.y)
     gl.uniform1f(timeUniformLocation, time)
 
-    const vertices = [cursor.current.x + 0.05, cursor.current.y - 0.05]
+    const normalizedX = cursorPos.value.current.x * 2 - 1
+    const normalizedY = cursorPos.value.current.y * -2 + 1
+
+    const vertices = [normalizedX + 0.05, normalizedY - 0.05]
 
     for (let i = 0; i <= segmentsCount; i++) {
       const angle = i * angleStep
-      const x = (Math.cos(angle) / radius) + cursor.current.x + 0.05
-      const y = (Math.sin(angle) / radius * (window.innerWidth / window.innerHeight)) + cursor.current.y - 0.05
+      const x = (Math.cos(angle) / radius) + normalizedX + 0.05
+      const y = (Math.sin(angle) / radius * (window.innerWidth / window.innerHeight)) + normalizedY - 0.05
       vertices.push(x, y)
     }
 
@@ -57,13 +85,6 @@ onMounted(() => {
   }
 
   requestAnimationFrame(render)
-
-  window.addEventListener('mousemove', (event) => {
-    const mouseX = event.clientX
-    const mouseY = event.clientY
-    cursor.target.x = (mouseX / window.innerWidth) * 2 - 1
-    cursor.target.y = (mouseY / window.innerHeight) * -2 + 1
-  })
 
   window.addEventListener('resize', () => debounce(resizeShaderCanvas(canvas.value, gl)))
 })

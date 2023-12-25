@@ -6,7 +6,6 @@ precision mediump float;
 #define TWO_PI 6.28318530718
 
 uniform vec2 u_resolution; // in pixel
-uniform vec2 u_mouse; // -1 (left) -1 (bottom) - 1 (top) 1 (right)
 uniform float u_time; // in s
 
 out vec4 out_color;
