@@ -20,9 +20,9 @@ onMounted(() => {
 
 <template>
   <main>
-    <!-- <Cursor /> -->
-    <!-- <Cube /> -->
-    <!-- <Image /> -->
+    <Cursor />
+    <Cube />
+    <!-- <Canvas /> -->
     <section>
       <h1>section 1</h1>
     </section>
