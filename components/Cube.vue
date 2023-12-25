@@ -8,8 +8,10 @@ const canvas = ref()
 onMounted(() => {
   const pane = new Pane()
 
+  // scene
   const scene = new THREE.Scene()
 
+  // camera
   const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100)
   camera.position.z = 3
   pane.addBinding(camera.position, 'z', { min: 1, max: 10 })
@@ -17,21 +19,26 @@ onMounted(() => {
   // const cameraHelper = new THREE.CameraHelper(camera)
   // scene.add(cameraHelper)
 
+  // geometry and material
   const geometry = new THREE.BoxGeometry(1, 1, 1)
   const material = new THREE.MeshNormalMaterial()
 
+  // mesh
   const mesh = new THREE.Mesh(geometry, material)
 
   scene.add(mesh)
 
+  // renderer
   const renderer = new THREE.WebGLRenderer({ canvas: canvas.value, alpha: true, antialias: true })
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
+  // orbit controls
   const controls = new OrbitControls(camera, canvas.value)
   controls.enableDamping = true
   controls.enableZoom = false
 
+  // render loop
   const render = (time = 0) => {
     time /= 1000
 
