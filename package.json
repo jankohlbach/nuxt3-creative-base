@@ -14,6 +14,7 @@
     "@types/three": "^0.160.0",
     "eslint": "^8.56.0",
     "nuxt": "^3.9.3",
+    "nuxt-simple-robots": "^3.1.10",
     "sass": "^1.70.0",
     "tweakpane": "^4.0.3",
     "typescript": "^5.3.3",

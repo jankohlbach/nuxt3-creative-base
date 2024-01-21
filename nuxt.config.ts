@@ -14,15 +14,14 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/manifest.webmanifest' }
       ],
       script: [
-        { async: true, defer: true, 'data-website-id': 'dad39b61-b752-41ac-aeaf-87e504221384', src: 'https://tracking.jnkl.dev/umami.js', 'data-domains': 'nuxt3-creative-base.vercel.app' }
+        { async: true, src: 'https://tracking.jnkl.dev/script.js', 'data-do-not-track': 'true', 'data-website-id': '1862b35f-c5b6-4845-a072-95c964c7a5e5', 'data-domains': 'nuxt3-creative-base.vercel.app' }
       ],
       meta: [
-        { name: 'robots', content: 'noindex,nofollow' },
         { name: 'theme-color', content: '#000000' },
         { name: 'description', content: 'minimal nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, a native webgl setting (the cursor) and a three.js setting (the cube)' },
         { property: 'og:title', content: 'nuxt3 creative base' },
         { property: 'og:description', content: 'minimal nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, a native webgl setting (the cursor) and a three.js setting (the cube)' },
-        { property: 'og:image', content: 'https://nuxt3-creative-base.vercel.app/og-image.jpg' },
+        // { property: 'og:image', content: 'https://nuxt3-creative-base.vercel.app/og-image.jpg' },
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'en' }
       ]
@@ -43,5 +42,6 @@ export default defineNuxtConfig({
       }
     },
     plugins: [glsl()]
-  }
+  },
+  modules: ['nuxt-simple-robots']
 })
