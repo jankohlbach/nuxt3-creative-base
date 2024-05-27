@@ -2,6 +2,9 @@ import glsl from 'vite-plugin-glsl'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  site: {
+    url: 'https://nuxt3-creative-base.vercel.app'
+  },
   app: {
     head: {
       htmlAttrs: {
