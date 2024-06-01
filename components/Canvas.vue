@@ -73,6 +73,10 @@ const setMediaStore = (scrollY: number) => {
 
     imageMesh.scale.set(bounds.width, bounds.height, 1)
 
+    if (!(bounds.top >= 0 && bounds.top <= window.innerHeight)) {
+      imageMesh.position.y = 2 * window.innerHeight
+    }
+
     scene.add(imageMesh)
 
     return {
@@ -83,7 +87,7 @@ const setMediaStore = (scrollY: number) => {
       height: bounds.height,
       top: bounds.top + scrollY,
       left: bounds.left,
-      isInView: true
+      isInView: bounds.top >= 0 && bounds.top <= window.innerHeight
     }
   })
 }
@@ -93,8 +97,11 @@ const calcFov = () => 2 * Math.atan((window.innerHeight / 2) / CAMERA_POS) * 180
 onMounted(() => {
   // register actions after page transition
   nuxtApp.hook('page:transition:finish', () => {
+    window.scrollTo(0, 0)
     clearMediaStore()
-    setMediaStore(0)
+    setTimeout(() => {
+      setMediaStore(0)
+    }, 100)
   })
 
   // create intersection observer to only render in view elements
@@ -137,7 +144,9 @@ onMounted(() => {
   })
 
   // media details
-  setMediaStore(scroll.value.scrollY)
+  setTimeout(() => {
+    setMediaStore(scroll.value.scrollY)
+  }, 100)
 
   // renderer
   const renderer = new THREE.WebGLRenderer({ canvas: canvas.value, alpha: true, antialias: true })
@@ -153,6 +162,8 @@ onMounted(() => {
         object.material.uniforms.uResolution.value.x = window.innerWidth
         object.material.uniforms.uResolution.value.y = window.innerHeight
         object.material.uniforms.uTime.value = time
+      } else {
+        object.mesh.position.y = 2 * window.innerHeight
       }
     })
 
@@ -177,6 +188,7 @@ onMounted(() => {
       object.height = bounds.height
       object.top = bounds.top + scroll.value.scrollY
       object.left = bounds.left
+      object.isInView = bounds.top >= 0 && bounds.top <= window.innerHeight
       object.material.uniforms.uTextureSize.value.x = (object.media as HTMLImageElement).naturalWidth
       object.material.uniforms.uTextureSize.value.y = (object.media as HTMLImageElement).naturalHeight
       object.material.uniforms.uQuadSize.value.x = bounds.width
