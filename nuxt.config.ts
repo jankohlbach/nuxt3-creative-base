@@ -47,5 +47,5 @@ export default defineNuxtConfig({
     },
     plugins: [glsl()]
   },
-  modules: ['nuxt-simple-robots']
+  modules: ['@nuxtjs/robots']
 })
