@@ -13,14 +13,14 @@ const CAMERA_POS = 500
 
 let observer: IntersectionObserver
 let mediaStore: {
-  media: HTMLImageElement,
-  material: THREE.ShaderMaterial,
-  mesh: THREE.Mesh,
-  width: number,
-  height: number,
-  top: number,
-  left: number,
-  isInView: boolean,
+  media: HTMLImageElement
+  material: THREE.ShaderMaterial
+  mesh: THREE.Mesh
+  width: number
+  height: number
+  top: number
+  left: number
+  isInView: boolean
 }[] = []
 
 let scene: THREE.Scene
@@ -87,7 +87,7 @@ const setMediaStore = (scrollY: number) => {
       height: bounds.height,
       top: bounds.top + scrollY,
       left: bounds.left,
-      isInView: bounds.top >= 0 && bounds.top <= window.innerHeight
+      isInView: bounds.top >= 0 && bounds.top <= window.innerHeight,
     }
   })
 }
@@ -115,7 +115,7 @@ onMounted(() => {
         }
       })
     },
-    { rootMargin: '20px 0px 20px 0px' }
+    { rootMargin: '20px 0px 20px 0px' },
   )
 
   // scene
@@ -136,11 +136,11 @@ onMounted(() => {
       uTexture: { value: null },
       uTextureSize: { value: new THREE.Vector2(100, 100) },
       uQuadSize: { value: new THREE.Vector2(100, 100) },
-      uBorderRadius: { value: 0 }
+      uBorderRadius: { value: 0 },
     },
     vertexShader: vsSource,
     fragmentShader: fsSource,
-    glslVersion: THREE.GLSL3
+    glslVersion: THREE.GLSL3,
   })
 
   // media details
@@ -204,19 +204,28 @@ onMounted(() => {
     <canvas ref="canvas" />
 
     <div class="card">
-      <img src="/texture.jpg" data-webgl-media>
+      <img
+        src="/texture.jpg"
+        data-webgl-media
+      >
       <h3>card 1</h3>
       <p>this is a test card</p>
     </div>
 
     <div class="card">
-      <img src="/texture.jpg" data-webgl-media>
+      <img
+        src="/texture.jpg"
+        data-webgl-media
+      >
       <h3>card 2</h3>
       <p>this is a test card</p>
     </div>
 
     <div class="card">
-      <img src="/texture.jpg" data-webgl-media>
+      <img
+        src="/texture.jpg"
+        data-webgl-media
+      >
       <h3>card 3</h3>
       <p>this is a test card</p>
     </div>

@@ -24,7 +24,7 @@ export default defineNuxtPlugin(() => {
 
   scroll.value.scrollY = window.scrollY
 
-  lenis.on('scroll', (_e: any) => {
+  lenis.on('scroll', (_e) => {
     scroll.value.scrollY = window.scrollY
   })
 
@@ -32,7 +32,7 @@ export default defineNuxtPlugin(() => {
     provide: {
       lenis,
       scrollStop,
-      scrollStart
-    }
+      scrollStart,
+    },
   }
 })
