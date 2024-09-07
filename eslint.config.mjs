@@ -16,6 +16,7 @@ export default withNuxt(
       'vue/multi-word-component-names': ['off', {
         ignores: [],
       }],
+      '@stylistic/brace-style': ['error', '1tbs'],
     },
   },
 )
