@@ -2,10 +2,7 @@ import glsl from 'vite-plugin-glsl'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  site: {
-    url: 'https://nuxt3-creative-base.vercel.app',
-    // indexable: false,
-  },
+  modules: ['@nuxt/eslint', '@nuxtjs/robots'],
   app: {
     head: {
       htmlAttrs: {
@@ -32,12 +29,13 @@ export default defineNuxtConfig({
       ],
     },
   },
-  typescript: {
-    typeCheck: true,
-  },
   css: [
     '@/assets/styles/global.scss',
   ],
+  site: {
+    url: 'https://nuxt3-creative-base.vercel.app',
+    // indexable: false,
+  },
   vite: {
     css: {
       preprocessorOptions: {
@@ -48,7 +46,9 @@ export default defineNuxtConfig({
     },
     plugins: [glsl()],
   },
-  modules: ['@nuxt/eslint', '@nuxtjs/robots'],
+  typescript: {
+    typeCheck: true,
+  },
   eslint: {
     config: {
       stylistic: {
