@@ -13,11 +13,14 @@ export default defineNuxtPlugin(() => {
   requestAnimationFrame(raf)
 
   const scrollStop = () => {
+    const scrollBarWidth = window.innerWidth - document.body.offsetWidth
+    document.body.style.paddingRight = `${scrollBarWidth}px`
     document.body.style.overflowY = 'hidden'
     lenis.stop()
   }
 
   const scrollStart = () => {
+    document.body.style.paddingRight = ''
     document.body.style.overflowY = ''
     lenis.start()
   }

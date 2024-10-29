@@ -27,11 +27,6 @@ body {
   hyphenate-character: '-';
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-
-  @include has-hover {
-    width: 100vw;
-    padding-right: 10px;
-  }
 }
 
 img, picture, video, svg {
