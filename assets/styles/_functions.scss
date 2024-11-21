@@ -14,7 +14,15 @@
 }
 
 @function clamp-fluid($min, $max) {
-  @return clamp(to-rem($min), calc(((100 * ($max - $min)) / (var(--fluid-max) - var(--fluid-min))) * 1vw) + calc((((var(--fluid-min) * $max) - (var(--fluid-max) * $min)) / (var(--fluid-min) - var(--fluid-max))) / 16 * 1rem), to-rem($max));
+  @return clamp(
+    to-rem($min),
+    calc(
+      ((100 * ($max - $min)) / (var(--fluid-max) - var(--fluid-min))) * 1vw
+    ) + calc(
+      ((var(--fluid-min) * $max) - (var(--fluid-max) * $min)) / (var(--fluid-min) - var(--fluid-max))
+    ) / 16 * 1rem,
+    to-rem($max)
+  );
 }
 
 @function str-replace($string, $search, $replace: "") {
