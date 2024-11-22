@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: '/manifest.webmanifest' },
       ],
       script: [
-        { 'async': true, 'src': 'https://tracking.jnkl.dev/script.js', 'data-do-not-track': 'true', 'data-website-id': '1862b35f-c5b6-4845-a072-95c964c7a5e5', 'data-domains': 'nuxt3-creative-base.vercel.app' },
+        { 'defer': true, 'src': 'https://tracking.jnkl.dev/script.js', 'data-website-id': '1862b35f-c5b6-4845-a072-95c964c7a5e5', 'data-domains': 'nuxt3-creative-base.vercel.app', 'data-do-not-track': 'true' },
       ],
       meta: [
         { name: 'theme-color', content: '#000000' },
