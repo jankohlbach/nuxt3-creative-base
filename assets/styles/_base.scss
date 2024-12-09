@@ -66,8 +66,14 @@ a {
 
 // custom
 ::selection {
-  background-color: var(--c-dark);
   color: var(--c-light);
+  background-color: var(--c-dark);
+}
+
+html {
+  &.no-overscroll {
+    overscroll-behavior: none;
+  }
 }
 
 body {
