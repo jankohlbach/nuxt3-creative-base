@@ -9,7 +9,7 @@ onMounted(() => {
     background-repeat: no-repeat;
   `)
 
-  console.log('%c🦆 made by https://jankohlbach.com 🦆', `
+  console.log('%cmade by https://jankohlbach.com', `
     color: #FFFEFD;
     background: #1A1A18;
     padding: 5px 10px;

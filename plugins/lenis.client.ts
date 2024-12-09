@@ -3,23 +3,23 @@ import Lenis from 'lenis'
 export default defineNuxtPlugin(() => {
   const scroll = useScroll()
 
-  const lenis = new Lenis()
-
-  const raf = (time: number) => {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-  }
-
-  requestAnimationFrame(raf)
+  const lenis = new Lenis({
+    autoRaf: true,
+  })
 
   const scrollStop = () => {
-    const scrollBarWidth = window.innerWidth - document.body.offsetWidth
-    document.body.style.paddingRight = `${scrollBarWidth}px`
-    document.body.style.overflowY = 'hidden'
+    if (!lenis.isStopped) {
+      const scrollBarWidth = window.innerWidth - document.body.offsetWidth
+      document.body.style.setProperty('--scroll-bar-width', `${scrollBarWidth}px`)
+      document.body.style.paddingRight = document.body.style.getPropertyValue('--scroll-bar-width') || scrollBarWidth + 'px'
+    }
+
+    document.body.style.overflowY = 'clip'
     lenis.stop()
   }
 
   const scrollStart = () => {
+    document.body.style.removeProperty('--scroll-bar-width')
     document.body.style.paddingRight = ''
     document.body.style.overflowY = ''
     lenis.start()

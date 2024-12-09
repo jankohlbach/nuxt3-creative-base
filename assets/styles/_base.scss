@@ -88,8 +88,13 @@ body {
 }
 
 // scroll
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
 .lenis.lenis-smooth {
-  scroll-behavior: auto;
+  scroll-behavior: auto !important;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
@@ -97,7 +102,11 @@ body {
 }
 
 .lenis.lenis-stopped {
-  overflow: hidden;
+  overflow: clip;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 // grid
