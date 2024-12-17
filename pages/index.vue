@@ -1,8 +1,16 @@
+<script setup lang0="ts">
+definePageMeta({
+  pageTransition: globalTransition,
+})
+</script>
+
 <template>
   <main>
+    <NuxtLink to="/page-2">
+      Page 2
+    </NuxtLink>
     <Cursor />
     <Cube />
-    <!-- <Canvas /> -->
     <section>
       <h1>section 1</h1>
     </section>

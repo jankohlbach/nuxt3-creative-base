@@ -66,6 +66,7 @@ onMounted(() => {
 canvas {
   position: fixed;
   inset: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
 }

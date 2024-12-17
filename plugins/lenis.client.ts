@@ -5,6 +5,7 @@ export default defineNuxtPlugin(() => {
 
   const lenis = new Lenis({
     autoRaf: true,
+    lerp: 0.07,
   })
 
   const scrollStop = () => {
