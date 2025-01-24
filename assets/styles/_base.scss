@@ -72,7 +72,10 @@ a {
 
 html {
   &.no-overscroll {
-    overscroll-behavior: none;
+    &,
+    body {
+      overscroll-behavior: none;
+    }
   }
 }
 
@@ -92,6 +95,11 @@ body {
   overflow: hidden;
   white-space: nowrap;
 }
+
+// native page-transition as progressive enhancement
+// @view-transition {
+//   navigation: auto;
+// }
 
 // scroll
 html.lenis,

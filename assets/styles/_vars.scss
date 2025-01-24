@@ -49,8 +49,14 @@
   --c-dark: #000000;
 
   // animations
+  // in-out
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
-  --ease-in-out-custom: cubic-bezier(0.4, 0, 0.2, 1);
+  // smooth
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  // snappy
+  --ease-snappy: cubic-bezier(0.19, 0.9, 0.3, 1);
+  // spring
+  --ease-spring: linear(0, .009, .035 2.1%, .141 4.4%, .723 12.9%, .938 16.7%, 1.017, 1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%, 1.129 32.8%, 1.051 39.6%, 1.017 43.1%, .991, .977 51%, .974 53.8%, .975 57.1%, .997 69.8%, 1.003 76.9%, 1);
 
   // z-index
   --zi-cursor: 2000;
