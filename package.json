@@ -9,12 +9,12 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^0.7.5",
+    "@nuxt/eslint": "^1.0.0",
     "@nuxtjs/robots": "^5.2.2",
     "@tweakpane/core": "^2.0.5",
-    "@types/three": "^0.172.0",
+    "@types/three": "^0.173.0",
     "eslint": "^9.19.0",
-    "nuxt": "^3.15.2",
+    "nuxt": "^3.15.4",
     "sass": "^1.83.4",
     "tweakpane": "^4.0.5",
     "typescript": "^5.7.3",
@@ -25,7 +25,7 @@
     "gsap": "^3.12.7",
     "lenis": "^1.1.20",
     "split-type": "^0.3.4",
-    "three": "^0.172.0"
+    "three": "^0.173.0"
   },
   "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
 }
