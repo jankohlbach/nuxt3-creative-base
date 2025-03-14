@@ -1,12 +1,12 @@
 {
   "icons": [
     {
-      "src": "/favicon-192.png",
+      "src": "/web-app-manifest-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/favicon-512.png",
+      "src": "/web-app-manifest-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
