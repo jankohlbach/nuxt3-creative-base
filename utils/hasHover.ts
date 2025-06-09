@@ -1,1 +1,1 @@
-export const hasHover = () => window.matchMedia('(hover: hover) and (min-width: 768px)').matches
+export const hasHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches
