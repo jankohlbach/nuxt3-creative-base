@@ -138,8 +138,23 @@ html.lenis body {
 }
 
 // webgl
-[data-webgl-media] {
-  opacity: 0;
+[data-canvas] {
+  > * {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.no-curtains {
+  [data-js="canvas-item"] {
+    > * {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
 // tweakpane

@@ -14,11 +14,16 @@ export const handleEnter = () => {
 }
 
 export const handleAfterLeave = () => {
-  // close menu and stuff
+  const { canvasItems } = useCanvas()
+
+  canvasItems.value = null
 }
 
 export const handleAfterEnter = () => {
   const { $scrollStart } = useNuxtApp()
 
+  const { setCanvasItems } = useCanvas()
+
+  setCanvasItems()
   $scrollStart()
 }
