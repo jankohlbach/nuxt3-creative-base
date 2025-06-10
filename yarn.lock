@@ -1291,6 +1291,25 @@
     std-env "^3.9.0"
     ufo "^1.6.1"
 
+"@nuxtjs/sitemap@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/sitemap/-/sitemap-7.3.1.tgz#a1194a7607c3a2d00368812ee7d20aa8f5958630"
+  integrity sha512-HvVMg0MGdyOQi6gx2Gz9gWxxHywZqXH8FygWoMIaTsnw9yRRbQT52V47KAWoi5mJaL7y59dBKIy1gMY3WL9law==
+  dependencies:
+    "@nuxt/devtools-kit" "^2.4.1"
+    "@nuxt/kit" "^3.17.4"
+    chalk "^5.4.1"
+    defu "^6.1.4"
+    h3-compression "^0.3.2"
+    nuxt-site-config "^3.2.0"
+    ofetch "^1.4.1"
+    pathe "^2.0.3"
+    pkg-types "^2.1.0"
+    radix3 "^1.1.2"
+    semver "^7.7.2"
+    sirv "^3.0.1"
+    ufo "^1.6.1"
+
 "@oxc-parser/binding-darwin-arm64@0.72.3":
   version "0.72.3"
   resolved "https://registry.yarnpkg.com/@oxc-parser/binding-darwin-arm64/-/binding-darwin-arm64-0.72.3.tgz#6a8307895c24f3e7a21147ff34e42914a11e8085"
@@ -2742,6 +2761,11 @@ chalk@^4.0.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chalk@^5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.4.1.tgz#1b48bf0963ec158dce2aacf69c093ae2dd2092d8"
+  integrity sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w==
 
 chokidar@^4.0.0, chokidar@^4.0.1:
   version "4.0.1"
@@ -4296,6 +4320,11 @@ gzip-size@^7.0.0:
   dependencies:
     duplexer "^0.1.2"
 
+h3-compression@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/h3-compression/-/h3-compression-0.3.2.tgz#2d5e803a0a51fabf32deb34fa82e108577f6922b"
+  integrity sha512-B+yCKyDRnO0BXSfjAP4tCXJgJwmnKp3GyH5Yh66mY9KuOCrrGQSPk/gBFG2TgH7OyB/6mvqNZ1X0XNVuy0qRsw==
+
 h3@^1.12.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/h3/-/h3-1.13.0.tgz#b5347a8936529794b6754b440e26c0ab8a60dceb"
@@ -5477,7 +5506,7 @@ nuxt-site-config-kit@3.2.0:
     std-env "^3.9.0"
     ufo "^1.6.1"
 
-nuxt-site-config@^3.1.9:
+nuxt-site-config@^3.1.9, nuxt-site-config@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/nuxt-site-config/-/nuxt-site-config-3.2.0.tgz#919f2ce6e98b24f77819612b581732a49cd1ae05"
   integrity sha512-o1LDV+eaiP0qgM97RxoX2ost3mzmNmg5D3BmiORXCD9lx9CR5OZKc7nXI0zGsASk3eSVj4iNp0ctyF6afPFTow==

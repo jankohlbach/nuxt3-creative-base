@@ -1,5 +1,5 @@
 {
-  "name": "astro-creative-base",
+  "name": "nuxt3-creative-base",
   "type": "module",
   "version": "1.0.0",
   "scripts": {
@@ -12,6 +12,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.4.1",
     "@nuxtjs/robots": "^5.2.10",
+    "@nuxtjs/sitemap": "^7.3.1",
     "@tweakpane/core": "^2.0.5",
     "@types/three": "^0.177.0",
     "eslint": "^9.28.0",
