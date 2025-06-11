@@ -4,6 +4,8 @@
 
     <slot />
 
+    <Splash />
+
     <Canvas />
   </div>
 </template>

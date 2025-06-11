@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const { $scrollStop } = useNuxtApp()
+
 const { inviewTrigger, setInviewTrigger } = useInview()
 
 const initInViewTrigger = () => {
@@ -21,6 +23,8 @@ const initInViewTrigger = () => {
 }
 
 onMounted(() => {
+  $scrollStop()
+
   watch(inviewTrigger, () => initInViewTrigger())
 
   setInviewTrigger()

@@ -1,6 +1,14 @@
 <script setup lang="ts">
+const inview = ref(false)
+
 definePageMeta({
   pageTransition: globalTransition,
+})
+
+onMounted(() => {
+  window.addEventListener('splash:done', () => {
+    inview.value = true
+  })
 })
 </script>
 
@@ -8,7 +16,10 @@ definePageMeta({
   <main>
     <NuxtLink to="/">Home</NuxtLink>
     <section class="container">
-      <h1 data-inview>
+      <h1
+        :class="{ inview }"
+        data-inview-manual
+      >
         Nuxt yay
       </h1>
       <div class="grid media">
