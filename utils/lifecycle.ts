@@ -23,7 +23,9 @@ export const handleAfterEnter = () => {
   const { $scrollStart } = useNuxtApp()
 
   const { setCanvasItems } = useCanvas()
+  const { setHoverTrigger } = useCursor()
 
   setCanvasItems()
+  setHoverTrigger()
   $scrollStart()
 }
