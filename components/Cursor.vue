@@ -64,6 +64,7 @@ onMounted(() => {
       --cursor-x: ${cursorPos.current.x};
       --cursor-y: ${cursorPos.current.y};
     `"
+    aria-hidden="true"
   >
     <div class="cursor-inner" />
   </div>
