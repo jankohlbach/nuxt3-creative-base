@@ -8,7 +8,9 @@ definePageMeta({
   <main>
     <NuxtLink to="/">Home</NuxtLink>
     <section class="container">
-      <h1>Nuxt yay</h1>
+      <h1 data-inview>
+        Nuxt yay
+      </h1>
       <div class="grid media">
         <div
           class="image"

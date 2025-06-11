@@ -8,7 +8,9 @@ definePageMeta({
   <main>
     <NuxtLink to="/page-2">Page 2</NuxtLink>
     <section class="container">
-      <h1>Nuxt yay</h1>
+      <h1 data-inview>
+        Nuxt yay
+      </h1>
       <div class="grid media">
         <div
           class="image"
@@ -36,7 +38,9 @@ definePageMeta({
       </div>
     </section>
     <section class="container">
-      <h1>Nuxt yay</h1>
+      <h1 data-inview>
+        Nuxt yay
+      </h1>
       <div class="grid media">
         <div
           class="image"
@@ -51,7 +55,9 @@ definePageMeta({
       </div>
     </section>
     <section class="container">
-      <h1>Nuxt yay</h1>
+      <h1 data-inview>
+        Nuxt yay
+      </h1>
       <div class="grid media">
         <div
           class="image"

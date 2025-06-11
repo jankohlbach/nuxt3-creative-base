@@ -24,8 +24,10 @@ export const handleAfterEnter = () => {
 
   const { setCanvasItems } = useCanvas()
   const { setHoverTrigger } = useCursor()
+  const { setInviewTrigger } = useInview()
 
   setCanvasItems()
   setHoverTrigger()
+  setInviewTrigger()
   $scrollStart()
 }

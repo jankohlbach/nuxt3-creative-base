@@ -137,6 +137,25 @@ html.lenis body {
   grid-template-columns: repeat(var(--grid-columns), 1fr);
 }
 
+// inview
+[data-inview] {
+  --delay: 0s;
+
+  filter: blur(5px);
+  opacity: 0;
+  transform: translateY(to-rem(20));
+  transition-property: filter, opacity, transform;
+  transition-duration: 0.7s;
+  transition-timing-function: var(--ease-smooth);
+  transition-delay: var(--delay);
+
+  &.inview {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 // webgl
 [data-canvas] {
   > * {
