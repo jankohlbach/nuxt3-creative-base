@@ -6,7 +6,7 @@ definePageMeta({
 })
 
 onMounted(() => {
-  window.addEventListener('splash:done', () => {
+  window.addEventListener('intro:done', () => {
     inview.value = true
   })
 })
@@ -19,8 +19,22 @@ onMounted(() => {
         :class="{ inview }"
         data-inview-manual
       >
-        Nuxt yay
+        nuxt3 creative base
       </h1>
+      <p
+        :class="{ inview }"
+        data-inview-manual
+      >
+        nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, curtainsjs to load media with webgl, custom cursor, inview trigger, splash screen, robots.txt, sitemap.xml
+      </p>
+    </section>
+    <section class="container">
+      <h2
+        :class="{ inview }"
+        data-inview-manual
+      >
+        section
+      </h2>
       <div class="grid media">
         <div
           class="image"
@@ -48,9 +62,9 @@ onMounted(() => {
       </div>
     </section>
     <section class="container">
-      <h1 data-inview>
-        Nuxt yay
-      </h1>
+      <h2 data-inview>
+        section
+      </h2>
       <div class="grid media">
         <div
           class="image"
@@ -65,9 +79,9 @@ onMounted(() => {
       </div>
     </section>
     <section class="container">
-      <h1 data-inview>
-        Nuxt yay
-      </h1>
+      <h2 data-inview>
+        section
+      </h2>
       <div class="grid media">
         <div
           class="image"
@@ -91,6 +105,10 @@ section {
   flex-direction: column;
   gap: to-rem(50);
   align-items: flex-start;
+}
+
+p {
+  max-width: 60ch;
 }
 
 .media {

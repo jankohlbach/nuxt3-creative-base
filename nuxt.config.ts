@@ -21,9 +21,9 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: 'theme-color', content: '#000000' },
-        { name: 'description', content: 'minimal nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, curtainsjs to load media with webgl, custom cursor, inview trigger, splash screen, robots.txt, sitemap.xml' },
+        { name: 'description', content: 'nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, curtainsjs to load media with webgl, custom cursor, inview trigger, splash screen, robots.txt, sitemap.xml' },
         { property: 'og:title', content: 'nuxt3 creative base' },
-        { property: 'og:description', content: 'minimal nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, curtainsjs to load media with webgl, custom cursor, inview trigger, splash screen, robots.txt, sitemap.xml' },
+        { property: 'og:description', content: 'nuxt3 starter for creative projects, includes scss setup, gsap, lenis scroll, curtainsjs to load media with webgl, custom cursor, inview trigger, splash screen, robots.txt, sitemap.xml' },
         // { property: 'og:image', content: 'https://nuxt3-creative-base.vercel.app/og-image.jpg' },
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'en' },

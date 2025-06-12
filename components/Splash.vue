@@ -6,7 +6,7 @@ const { $scrollStart } = useNuxtApp()
 const splash = useTemplateRef('splash')
 
 onMounted(() => {
-  if (!sessionStorage.getItem('splash:done') && splash.value) {
+  if (!sessionStorage.getItem('intro:done') && splash.value) {
     splash.value.style.display = 'block'
   }
 
@@ -19,19 +19,19 @@ onMounted(() => {
       autoAlpha: 0,
     })
     .call(() => {
-      window.dispatchEvent(new Event('splash:done'))
+      window.dispatchEvent(new Event('intro:done'))
     }, [], '<0.4')
     .call(() => {
-      if (!sessionStorage.getItem('splash:done')) {
+      if (!sessionStorage.getItem('intro:done')) {
         $scrollStart()
-        sessionStorage.setItem('splash:done', 'true')
+        sessionStorage.setItem('intro:done', 'true')
       }
     })
 
-  if (sessionStorage.getItem('splash:done') && splash.value) {
+  if (sessionStorage.getItem('intro:done') && splash.value) {
     nextTick(() => {
       tl.progress(1)
-      window.dispatchEvent(new Event('splash:done'))
+      window.dispatchEvent(new Event('intro:done'))
       setTimeout(() => {
         $scrollStart()
       }, 500)

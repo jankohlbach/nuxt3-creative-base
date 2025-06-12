@@ -6,7 +6,7 @@ definePageMeta({
 })
 
 onMounted(() => {
-  window.addEventListener('splash:done', () => {
+  window.addEventListener('intro:done', () => {
     inview.value = true
   })
 })
@@ -19,7 +19,7 @@ onMounted(() => {
         :class="{ inview }"
         data-inview-manual
       >
-        Nuxt yay
+        section
       </h1>
       <div class="grid media">
         <div

@@ -1,11 +1,17 @@
 <template>
   <header>
     <div class="container">
-      <NuxtLink to="/">Nuxt3 Creative Base</NuxtLink>
+      <NuxtLink to="/">nuxt3 creative base</NuxtLink>
       <nav>
         <ul>
           <li><NuxtLink to="/">Home</NuxtLink></li>
           <li><NuxtLink to="/page-2">Page 2</NuxtLink></li>
+          <li>
+            <NuxtLink
+              to="https://github.com/jankohlbach/nuxt3-creative-base"
+              target="_blank"
+            >GitHub</NuxtLink>
+          </li>
         </ul>
       </nav>
     </div>

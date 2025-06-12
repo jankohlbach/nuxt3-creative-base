@@ -26,6 +26,8 @@ export const handleAfterEnter = () => {
   const { setHoverTrigger } = useCursor()
   const { setInviewTrigger } = useInview()
 
+  window.dispatchEvent(new Event('intro:done'))
+
   setCanvasItems()
   setHoverTrigger()
   setInviewTrigger()
