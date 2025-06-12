@@ -14,7 +14,6 @@ onMounted(() => {
 
 <template>
   <main>
-    <NuxtLink to="/page-2">Page 2</NuxtLink>
     <section class="container">
       <h1
         :class="{ inview }"

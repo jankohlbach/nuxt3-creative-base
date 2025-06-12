@@ -14,7 +14,6 @@ onMounted(() => {
 
 <template>
   <main>
-    <NuxtLink to="/">Home</NuxtLink>
     <section class="container">
       <h1
         :class="{ inview }"

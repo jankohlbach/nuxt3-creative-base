@@ -2,7 +2,11 @@
   <div class="layout">
     <Cursor />
 
+    <Header />
+
     <slot />
+
+    <Footer />
 
     <Splash />
 
